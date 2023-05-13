@@ -19,3 +19,5 @@ mvn start
 # How to run the tests
 
 Clone the repository and run the command ```npm run jest```, this will first clean the project by running
+
+The base url for accessing the live application is: http://18.170.0.36:7070/
