@@ -1,0 +1,22 @@
+{
+  "name": "my_top_100_movies",
+  "version": "1.0.0",
+  "description": " Application which lets users set their top 100 movies. ",
+  "main": "bin/www",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/columnhack/my_top_100_movies.git"
+  },
+  "keywords": [
+    "movies"
+  ],
+  "author": "Evi Owhotemu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/columnhack/my_top_100_movies/issues"
+  },
+  "homepage": "https://gitlab.com/columnhack/my_top_100_movies#readme"
+}
