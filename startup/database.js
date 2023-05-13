@@ -1,6 +1,7 @@
 "use strict";
 
 const mongoose = require("mongoose");
+const { loadMovies } = require("./seed_database");
 if (process.env.NODE_ENV == "development") mongoose.set("debug", true);
 
 const mongodbUrl = `${process.env.MONGODB_URL}`;
@@ -15,6 +16,7 @@ let db = mongoose.connection;
 
 db.on("connected", () => {
   console.log("mongo db connected");
+  loadMovies()
 });
 
 db.on("error", (error) => {

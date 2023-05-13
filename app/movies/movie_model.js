@@ -18,9 +18,12 @@ const Movie = new Schema(
     runtime: {
       type: Number,
     },
-    genre: {
+    genres: {
       type: Array,
       default: [],
+    },
+    rank: {
+      type: Number,
     },
     meta: {
       type: Object,

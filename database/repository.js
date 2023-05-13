@@ -71,7 +71,7 @@ class Repository {
     }
   
     massInsert(data = []) {
-      return this.Model.bulkCreate(data);
+      return this.Model.insertMany(data);
     }
   
     update(condition, update) {

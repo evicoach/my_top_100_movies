@@ -4,7 +4,8 @@
   "description": " Application which lets users set their top 100 movies. ",
   "main": "bin/www",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "seed": "node ./util/seed_database.js"
   },
   "repository": {
     "type": "git",
