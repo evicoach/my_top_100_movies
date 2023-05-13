@@ -2,24 +2,6 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { JWT_KEY } = require("../../config/constants");
 const userRepository = require("./user_repository");
-// async function createUser(payload) {
-//   const { email } = payload;
-//   try {
-//     let user = await userRepository.findOne({ email });
-
-//     if (user) {
-//       console.error("User with email already exists. ", user);
-//       return { error: `User with this email already exists.` };
-//     }
-//     const data = await userRepository.create(payload);
-//     return { data };
-//   } catch (err) {
-//     console.log("Error creating user ", err);
-//     return {
-//       error: "Error creating user",
-//     };
-//   }
-// }
 
 async function signup(payload) {
   const { email, phoneNumber, password, firstName, lastName, referralCode } =
