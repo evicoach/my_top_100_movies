@@ -1,1 +1,1 @@
-![Alt text here](./my_top_hundred_movies.drawio.svg)
+![Alt text here](./my_top_hundred_movies.svg)
