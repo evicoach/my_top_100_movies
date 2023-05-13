@@ -17,9 +17,6 @@ const User = new Schema(
     lastName: {
       type: String,
     },
-    address: {
-      type: String,
-    },
     topHundredMovies: {
       type: Array,
       default: [],
