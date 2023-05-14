@@ -19,13 +19,13 @@ Collections:
 
 Users Collection:
 Each document in the users collection represents a user and contains the following fields:
-_id: unique identifier for the user (MongoDB will generate an ObjectID)
-name: the user's name
-email: the user's email address
-password: the user's password (hashed for security)
-top100: an array of objects representing the user's top 100 movies. Each object in the array has the following fields:
-movieId: the ID of the movie in the movies collection
-rank: the user's ranking of the movie (1-100)
+- [x] _id: unique identifier for the user (MongoDB will generate an ObjectID)
+- [x] name: the user's name
+- [x] email: the user's email address
+- [x] password: the user's password (hashed for security)
+- [x] topHundred: an array of objects representing the user's top 100 movies. Each object in the array has the following fields:
+- [x] movieId: the ID of the movie in the movies collection
+- [x] rank: the user's ranking of the movie (1-100)
 
 # How to Run The Project
 
