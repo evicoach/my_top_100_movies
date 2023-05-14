@@ -1,3 +1,4 @@
+const logger = require("../../util/logger");
 const userRepository = require("../users/user_repository");
 const movieRepository = require("./movie_repository");
 const { ObjectId } = require("mongoose").mongo;
@@ -32,7 +33,7 @@ async function listMovies(data, query) {
     const data = await movieRepository.paginate(payload, query);
     return { data };
   } catch (err) {
-    console.log("Error getting movies", err);
+    logger.error(`Error getting movies: ${err}`);
     return { error: "Error getting movies" };
   }
 }
@@ -43,7 +44,7 @@ async function rankMovie(payload) {
     if (!foundUser) {
       return { error: "This user does not exist." };
     }
-    console.log("The found user is ", foundUser);
+    logger.info(`The found user is ${foundUser}`);
     const movie = await movieRepository.findById(new ObjectId(movieId));
     const userRankedMovie = await userRepository.findOne({
       topHundredMovies: { _id: new ObjectId(movieId) },
@@ -59,7 +60,7 @@ async function rankMovie(payload) {
     movie.rank = rank;
 
     //   foundUser.topHundredMovies.push(movie);
-    console.log("The new top hundred movies ", foundUser.topHundredMovies);
+    logger.info(`The new top hundred movies: ${foundUser.topHundredMovies}`);
 
     const updatedUser = await userRepository.update({
       _id: foundUser._id,

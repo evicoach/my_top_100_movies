@@ -22,7 +22,6 @@ const logger = createLogger({
     format.metadata(),
     format.prettyPrint()
   ),
-  statusLevels: true
 });
 
 module.exports = logger;

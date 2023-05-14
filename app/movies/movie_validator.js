@@ -1,5 +1,6 @@
 const { Http } = require("@status/codes");
 const Joi = require("joi");
+const logger = require("../../util/logger");
 async function addMovie(req, res, next) {
   try {
     const schema = Joi.object({
@@ -22,7 +23,7 @@ async function addMovie(req, res, next) {
     }
     next();
   } catch (err) {
-    console.log("Add movie validation error: ", err);
+    logger.error(`Add movie validation error: ${err}`);
     next(err);
   }
 }
@@ -48,7 +49,7 @@ async function listMovies(req, res, next) {
     }
     next();
   } catch (err) {
-    console.log("Rank movie validation error: ", err);
+    logger.error(`Rank movie validation error: ${err}`);
     next(err);
   }
 }
@@ -72,7 +73,7 @@ async function rankMovie(req, res, next) {
     }
     next();
   } catch (err) {
-    console.log("Rank movie validation error: ", err);
+    logger.error(`Rank movie validation error: ${err}`);
     next(err);
   }
 }

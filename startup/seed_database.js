@@ -1,8 +1,9 @@
 const movieRepository = require("../app/movies/movie_repository");
+const logger = require("../util/logger");
 const moviesData = require("../util/movies");
 async function loadMovies() {
   const movies = await movieRepository.all();
-  console.log("Size of movies ", movies.length);
+  logger.info(`Size of movies: ${movies.length}`);
   if (movies.length === 0) {
     const preparedMovies = moviesData["movies"]
       .filter((movie) => !!movie["posterUrl"])
@@ -20,4 +21,4 @@ async function loadMovies() {
   }
 }
 
-module.exports = {loadMovies};
+module.exports = { loadMovies };

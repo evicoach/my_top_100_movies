@@ -2,6 +2,7 @@ const { Http } = require("@status/codes");
 const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 const { JWT_KEY } = require("../../config/constants");
+const logger = require("../../util/logger");
 
 async function login(req, res, next) {
   try {
@@ -22,7 +23,7 @@ async function login(req, res, next) {
     }
     next();
   } catch (err) {
-    console.log("Login validation error: ", err);
+    logger.error(`Login validation error: ${err}`);
     next(err);
   }
 }
@@ -47,7 +48,7 @@ async function signup(req, res, next) {
       return res.status(Http.BadRequest).json(errors);
     }
   } catch (err) {
-    console.log("Auth validation error", err);
+    logger.error(`Auth validation error: ${err}`);
     next(err);
   }
   next();
@@ -64,9 +65,9 @@ async function authenticate(req, res, next) {
     const token = bearerHeader.split(" ")[1];
     const decoded = jwt.verify(token, JWT_KEY);
     req.user = decoded;
-    console.log("User from token is ", decoded);
+    logger.info(`User from token is ${decoded}`);
   } catch (err) {
-    console.log("Token error: ", err);
+    logger.error(`Token error: ${err}`);
     return res.status(Http.BadRequest).json({
       error: "Invalid token",
     });

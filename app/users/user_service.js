@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { JWT_KEY } = require("../../config/constants");
 const userRepository = require("./user_repository");
+const logger = require("../../util/logger");
 
 async function signup(payload) {
   const { email, phoneNumber, password, firstName, lastName, referralCode } =
@@ -29,7 +30,7 @@ async function signup(payload) {
     data.token = token;
     return { data };
   } catch (err) {
-    console.log("Signup error ", err);
+    logger.error(`Signup error: ${err}`);
     return { error: "Unable to complete signup" };
   }
 }
@@ -59,7 +60,7 @@ async function login(username, password) {
     delete data.username;
     return { data };
   } catch (err) {
-    console.log("Something went wrong", err);
+    logger.error(`Something went wrong: ${err}`);
     return { error: err };
   }
 }
